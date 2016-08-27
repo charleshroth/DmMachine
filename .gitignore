@@ -1,5 +1,14 @@
 *.class
 
+# Maven
+log/
+target/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
