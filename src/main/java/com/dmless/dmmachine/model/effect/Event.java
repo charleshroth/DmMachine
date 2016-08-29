@@ -1,7 +1,6 @@
 package com.dmless.dmmachine.model.effect;
 
-import com.dmless.dmmachine.model.cause.Cause;
-import com.dmless.dmmachine.model.effect.Effect;
+import com.dmless.dmmachine.model.cause.SimpleCause;
 
 /**
  * Created by Charles on 8/26/2016.
@@ -9,13 +8,13 @@ import com.dmless.dmmachine.model.effect.Effect;
 public class Event {
 
 	private Effect effect;
-	private Cause cause;
+	private SimpleCause cause;
 	private String name;
 	public int timer = 0;
 	private boolean isKnown = false;
 
 	public Event(Effect effect,
-					 Cause cause,
+					 SimpleCause cause,
 					 String name,
 					 int timer,
 					 boolean isKnown) {
@@ -34,11 +33,11 @@ public class Event {
 		this.effect = effect;
 	}
 
-	public Cause getCause() {
+	public SimpleCause getCause() {
 		return cause;
 	}
 
-	public void setCause(Cause cause) {
+	public void setCause(SimpleCause cause) {
 		this.cause = cause;
 	}
 

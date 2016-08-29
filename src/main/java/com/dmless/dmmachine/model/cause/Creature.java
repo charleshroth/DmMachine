@@ -1,97 +1,159 @@
 package com.dmless.dmmachine.model.cause;
 
+import com.dmless.dmmachine.model.effect.Event;
+
 import java.util.List;
 
 /**
- * Created by Charles on 8/26/2016.
+ * A creature, which can be a cause or target
+ * Author: Charles Roth
  */
-public class Creature extends Target{
+public class Creature implements Target{
+	private int size;
+	private List<Event> events;
+	private List<Target> targets;
+	private String flavor;
+	private Cause parent;
+	private long id;
+	private String name;
+	private String description;
+	private Boolean isKnown;
+	private int hitPoints;
+	private int speed;
 
-	private List<Creature> creatures;
-	private List<Item> inventory;
-	private List<Target> equipedInventory;
-
-	public Creature(int id,
-						 String name,
-						 String description,
-						 boolean known,
-						 int size,
-						 List<Creature> creatures,
-						 List<Item> inventory,
-						 List<Target> equipedInventory) {
-		super(id, name, description, known, size);
-		this.creatures = creatures;
-		this.inventory = inventory;
-		this.equipedInventory = equipedInventory;
-	}
-
-	public Creature(String name,
-						 String description){
-		super(name, description);
-	}
-
-	public List<Creature> getCreatures() {
-		return creatures;
-	}
-
-	public void setCreatures(List<Creature> creatures) {
-		this.creatures = creatures;
-	}
-
-	public List<Item> getInventory() {
-		return inventory;
-	}
-
-	public void setInventory(List<Item> inventory) {
-		this.inventory = inventory;
-	}
-
-	public List<Target> getEquipedInventory() {
-		return equipedInventory;
-	}
-
-	public void setEquipedInventory(List<Target> equipedInventory) {
-		this.equipedInventory = equipedInventory;
-	}
-
-	public void addCreature(Creature creature) throws Exception{
-		if(creature.getSize() > this.getSize()) {
-			creatures.add(creature);
-		}else {
-			throw new Exception();
-		}
-	}
-
-	public boolean removeCreature(Creature creature){
-		return creatures.remove(creature);
-	}
-
-	public void addInventory(Item item) throws Exception{
-		if(item.getSize() > this.getSize()) {
-			inventory.add(item);
-		}else {
-			throw new Exception();
-		}
-	}
-
-	public boolean removeInventory(Item item){
-		return inventory.remove(item);
-	}
-
-	public void equipTarget(Target target) throws Exception{
-		if(target.getSize() > this.getSize()) {
-			equipedInventory.add(target);
-		}else {
-			throw new Exception();
-		}
-	}
-
-	public boolean unequip(Target target){
-		return equipedInventory.remove(target);
+	@Override
+	public int getSize() {
+		return this.size;
 	}
 
 	@Override
-	public String toString() {
-		return super.toString();
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	@Override
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	@Override
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	@Override
+	public List<Target> getTargets() {
+		return targets;
+	}
+
+	@Override
+	public void setTargets(List<Target> targets) {
+		this.targets = targets;
+	}
+
+	@Override
+	public String getFlavor() {
+		return flavor;
+	}
+
+	@Override
+	public void setFlavor(String flavor) {
+		this.flavor = flavor;
+	}
+
+	@Override
+	public Cause getParent() {
+		return parent;
+	}
+
+	@Override
+	public void setParent(Cause cause) {
+		this.parent = cause;
+	}
+
+	@Override
+	public String getType() {
+		return null;
+	}
+
+	@Override
+	public void setType(String type) {
+
+	}
+
+	@Override
+	public void addEvent(Event event) {
+		this.events.add(event);
+	}
+
+	@Override
+	public boolean removeEvent(Event event) {
+		return this.events.remove(event);
+	}
+
+	@Override
+	public void addTarget(Target target) {
+		this.targets.add(target);
+	}
+
+	@Override
+	public boolean removeTarget(Target target) {
+		return this.targets.remove(target);
+	}
+
+	@Override
+	public long getId() {
+		return this.id;
+	}
+
+	@Override
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	@Override
+	public String getName() {
+		return this.name;
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String getDescription() {
+		return this.description;
+	}
+
+	@Override
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public boolean isKnown() {
+		return isKnown;
+	}
+
+	@Override
+	public void toggleIsKnown() {
+		this.isKnown = !isKnown;
+	}
+
+	public int getHitPoints() {
+		return hitPoints;
+	}
+
+	public void setHitPoints(int hitPoints) {
+		this.hitPoints = hitPoints;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
 	}
 }

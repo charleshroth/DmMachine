@@ -1,0 +1,5 @@
+INSERT INTO cause VALUES (1, 'mutation', 'a very bad mutation that has gone wild', 0)
+INSERT INTO cause VALUES (2, 'violence', 'evil sometimes just chooses to fight', 1)
+INSERT INTO cause VALUES (3, 'just because', 'things just didnt go your way', 0)
+INSERT INTO cause VALUES (4, 'god', 'the gods are angry with you', 1)
+INSERT INTO cause VALUES (5, 'npc', 'maybe an archenemy', 0)

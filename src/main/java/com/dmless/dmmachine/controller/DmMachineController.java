@@ -3,10 +3,8 @@ package com.dmless.dmmachine.controller;
 import org.springframework.stereotype.Controller;
 
 /**
- * Created by Charles on 8/26/2016.
+ * Serves a full cause and effect with targets
+ * Author: Charles Roth
  */
-@Controller
 public class DmMachineController {
-
-
 }
